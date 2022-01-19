@@ -1,5 +1,5 @@
 # Priyakovich-Olja-Code
-**About me 
+** About me 
  
 - My name is Olja Priyakovich and I am recent graduate of  Michigan State University coding bootcamp were I was learning the  skills necessary to become a full stack developer.  
 

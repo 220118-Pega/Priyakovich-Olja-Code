@@ -10,4 +10,3 @@
 ## Link
 [About me](https://oljasportfolio.herokuapp.com/) 
 
-![About Me](https://user-images.githubusercontent.com/79331882/131221639-5fd55bf7-6fac-4b30-862f-3ad0632a0871.png)

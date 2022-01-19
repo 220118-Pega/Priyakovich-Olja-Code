@@ -8,4 +8,4 @@ I am a Former coffee business owner. I have Bachelor's begree in Business Manage
 I enjoy running, hiking, skiing, traveling and coding.
 
 ## Link
-[Deployed Application](https://oljasportfolio.herokuapp.com/) 
+[About me](https://oljasportfolio.herokuapp.com/) 

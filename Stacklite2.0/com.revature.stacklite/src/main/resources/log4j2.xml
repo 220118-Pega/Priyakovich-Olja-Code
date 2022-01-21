@@ -1,0 +1,12 @@
+<Configuration status="INFO">
+# Configuration status is useful for troubleshooting config issues
+<Appenders>
+	# Appenders are places you will be logging to 
+	
+	#console Appender 
+	<Console name = "stdout" target="SYSTEM OUT">
+		<PatternLayout pattern = "%d(yyyy-MM-dd HH:mm:ss} %p %m %n"/>
+		#where %d determines date pattern,
+		# %p - output of log level
+		# %n - out of logged message and 
+		# %n - 

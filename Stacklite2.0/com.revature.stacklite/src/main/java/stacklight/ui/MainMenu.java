@@ -2,13 +2,16 @@ package stacklight.ui;
 
 import java.util.Scanner;
 
+import stacklight.bl.IIssueBL;
 import stacklight.models.Issue;
 
 public class MainMenu {
 	private Scanner myscanner;
+	private IIssueBL issueBL;
 	
-	public MainMenu(Scanner myscanner) {
+	public MainMenu(Scanner myscanner, IIssueBL issueBL) {
 		this.myscanner = myscanner;
+		this.issueBL = issueBL;
 	}
 	
 	
@@ -19,6 +22,7 @@ public class MainMenu {
 		do {
 			System.out.println("Welcome to Stacklight, what do you wanna do?");
 			System.out.println("[0) Create and issue");
+			System.out.println("[1] Get all issues");
 			System.out.println("[x] Exit");
 			
 			String userInput = myscanner.nextLine();
@@ -26,6 +30,10 @@ public class MainMenu {
 			case "0":
 				System.out.println("Creating an issue");
 				createIssue();
+				break;
+			case "1":
+				System.out.println("Getting issues...");
+				getIssues();
 				break;
 			case "x":
 				System.out.println("Goodbye");
@@ -41,6 +49,15 @@ public class MainMenu {
 	}
 
 
+	private void getIssues() {
+		// TODO Auto-generated method stub
+		for (Issue issue:issueBL.getIssues())
+		{
+			System.out.println(issue);
+		}
+	}
+
+
 	private void createIssue() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter a title for your issue: ");
@@ -49,6 +66,7 @@ public class MainMenu {
 		String description = myscanner.nextLine();
 		Issue newIssue = new Issue(title, description);
 		//saving to storage
+		issueBL.addIssue(newIssue);
 		System.out.println(newIssue);
 	}
 }

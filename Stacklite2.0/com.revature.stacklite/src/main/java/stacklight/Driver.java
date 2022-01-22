@@ -1,13 +1,17 @@
 package stacklight;
 
+import java.util.Scanner;
+
 import stacklight.models.Issue;
+import stacklight.ui.MainMenu;
 
 public class Driver {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Issue testIssue = new Issue();
-		System.out.print(testIssue);
+		
+		MainMenu menu = new MainMenu(new Scanner(System.in));
+		menu.start();
 	}
 
 }

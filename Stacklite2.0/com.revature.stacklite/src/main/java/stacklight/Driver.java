@@ -1,8 +1,6 @@
 package stacklight;
 
 import java.util.Scanner;
-
-import stacklight.models.Issue;
 import stacklight.ui.MainMenu;
 
 public class Driver {

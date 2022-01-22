@@ -55,7 +55,7 @@ public class Issue {
 		this.description = description;
 	}
 	public int getId() {
-		return Id;
+		return Id;	
 	}
 	public void setId(int id) {
 		Id = id;

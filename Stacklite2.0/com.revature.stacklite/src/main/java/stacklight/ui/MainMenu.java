@@ -67,23 +67,30 @@ public class MainMenu {
 		String answer = myscanner.nextLine();
 		Solution newSolution = new Solution(answer);
 		newSolution.setIssueId(Integer.parseInt(stringId));
-		issueBL.addSolution(newSolution);
+		try {
+			issueBL.addSolution(newSolution);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("No such issue found, try another id. ");
+		}
 	}
-
 
 	private void getSpecificIssue() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter the id of the issue you'd like to add a solution to: ");
 		String stringId = myscanner.nextLine();
-		Issue foundIssue = issueBL.getIssueById(Integer.parseInt(stringId));
-		System.out.println(foundIssue);
+		Issue foundIssue;
 		try {
+			foundIssue = issueBL.getIssueById(Integer.parseInt(stringId));
 			for(Solution solution:foundIssue.getSolutions())
 			{
 			System.out.println(solution);
 			}
-		} catch (NullPointerException e)
-		{
+		} catch (NumberFormatException e1) {
+			// TODO Auto-generated catch block
+			System.out.println("Plese only enter numerics");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
 			System.out.println("No such issue found, try another id. ");
 		}
 		

@@ -9,6 +9,6 @@ public interface IIssueBL {
 	void addIssue(Issue issue);
 
 	List<Issue> getIssues();
-	Issue getIssueById(int id);
-	void addSolution(Solution solution);
+	Issue getIssueById(int id) throws Exception;
+	void addSolution(Solution solution)throws Exception; 
 }

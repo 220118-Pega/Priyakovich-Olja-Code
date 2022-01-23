@@ -35,7 +35,10 @@ public class Solution {
 	public int getUpvote() {
 		return upvote;
 	}
-	public void setUpvote(int upvote) {
+	public void setUpvote(int upvote) throws Exception {
+		if(upvote < 0) {
+			throw new Exception("Upvote should only be positive!");
+		}
 		this.upvote = upvote;
 	}
 	

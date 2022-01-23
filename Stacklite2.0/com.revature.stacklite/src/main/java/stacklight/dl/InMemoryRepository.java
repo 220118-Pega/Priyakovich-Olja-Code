@@ -49,8 +49,9 @@ public class InMemoryRepository implements InterfaceRepository {
 	}
 
 	@Override
-	public Issue getIssueById(int id) {
-		// TODO Auto-generated method stub
+	public Issue getIssueById(int id) throws Exception {
+		// throw vs throws:
+		//throw keyword in code block, throws keyword in method signature
 		Issue foundIssue = null;
 		for(Issue issue:ListOfIssues)
 		{
@@ -59,11 +60,12 @@ public class InMemoryRepository implements InterfaceRepository {
 				foundIssue = issue;
 			}
 		}
+		if(foundIssue == null) throw new Exception("Issue not fond");
 		return foundIssue;
 	}
 
 	@Override
-	public void addSoulution(Solution newSolution) {
+	public void addSoulution(Solution newSolution) throws Exception {
 		// TODO Auto-generated method stub
 		Issue issue2Update = getIssueById(newSolution.getIssueId());
 		List<Solution> existingSolutions = issue2Update.getSolutions();

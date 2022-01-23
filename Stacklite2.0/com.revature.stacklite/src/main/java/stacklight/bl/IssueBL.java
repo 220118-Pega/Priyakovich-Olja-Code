@@ -23,12 +23,12 @@ public class IssueBL implements IIssueBL {
 		return repo.getIssues();
 	}
 	@Override
-	public Issue getIssueById(int id) {
+	public Issue getIssueById(int id) throws Exception {
 		// TODO Auto-generated method stub
 		return repo.getIssueById(id);
 	}
 	@Override
-	public void addSolution(Solution solution) {
+	public void addSolution(Solution solution) throws Exception {
 		// TODO Auto-generated method stub
 		repo.addSoulution(solution);
 		

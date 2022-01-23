@@ -66,9 +66,11 @@ public class MainMenu {
 		System.out.println("Enter the answer to your proposed solution");
 		String answer = myscanner.nextLine();
 		Solution newSolution = new Solution(answer);
-		newSolution.setIssueId(Integer.parseInt(stringId));
 		try {
+			newSolution.setIssueId(Integer.parseInt(stringId));
 			issueBL.addSolution(newSolution);
+		} catch (NumberFormatException ex) {
+			System.out.println("Please enter only numerics");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("No such issue found, try another id. ");

@@ -33,8 +33,8 @@ public class InMemoryRepository implements InterfaceRepository {
 			private static final long serialVersionUID = 1L;
 
 		{
-			add(new Issue("Code doesn't work, why??", "My code doesn't work I don't know why", 1, solutionListA));
-			add(new Issue("Code works??", "My code works, work I don't know why", 2));
+			add(new Issue("Code doesn't work, why?", "My code doesn't work I don't know why", 1, solutionListA));
+			add(new Issue("Code works?", "My code works, I don't know why", 2));
 	}};
 		
 //	ListOfIssues = Arrays.asList(

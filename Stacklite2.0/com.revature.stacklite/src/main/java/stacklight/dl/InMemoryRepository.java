@@ -61,5 +61,16 @@ public class InMemoryRepository implements InterfaceRepository {
 		}
 		return foundIssue;
 	}
+
+	@Override
+	public void addSoulution(Solution newSolution) {
+		// TODO Auto-generated method stub
+		Issue issue2Update = getIssueById(newSolution.getIssueId());
+		List<Solution> existingSolutions = issue2Update.getSolutions();
+		if(existingSolutions == null) existingSolutions = new ArrayList<Solution>();
+		existingSolutions.add(newSolution);
+		issue2Update.setSolutions(existingSolutions); 
+	}
+	
 }
 

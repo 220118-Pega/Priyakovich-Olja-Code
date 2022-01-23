@@ -3,6 +3,7 @@ package stacklight.bl;
 import java.util.List;
 import stacklight.dl.InterfaceRepository;
 import stacklight.models.Issue;
+import stacklight.models.Solution;
 
 
 public class IssueBL implements IIssueBL {
@@ -25,5 +26,11 @@ public class IssueBL implements IIssueBL {
 	public Issue getIssueById(int id) {
 		// TODO Auto-generated method stub
 		return repo.getIssueById(id);
+	}
+	@Override
+	public void addSolution(Solution solution) {
+		// TODO Auto-generated method stub
+		repo.addSoulution(solution);
+		
 	}
 }

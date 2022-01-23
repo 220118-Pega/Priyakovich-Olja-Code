@@ -1,8 +1,8 @@
 package stacklight.bl;
 
 import java.util.List;
-
 import stacklight.models.Issue;
+import stacklight.models.Solution;
 
 public interface IIssueBL {
 
@@ -10,5 +10,5 @@ public interface IIssueBL {
 
 	List<Issue> getIssues();
 	Issue getIssueById(int id);
-
+	void addSolution(Solution solution);
 }

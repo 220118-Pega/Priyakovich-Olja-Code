@@ -4,7 +4,7 @@ public class Solution {
 	private String answer;
 	private int id;
 	private int upvote;
-	
+	private int issueId;
 	public Solution() {
 		
 	}
@@ -37,6 +37,13 @@ public class Solution {
 	}
 	public void setUpvote(int upvote) {
 		this.upvote = upvote;
+	}
+	
+	public int getIssueId() {
+		return issueId;
+	}
+	public void setIssueId(int issueId) {
+		this.issueId = issueId;
 	}
 	@Override
 	public String toString() {

@@ -3,6 +3,7 @@ package stacklight.dl;
 import java.util.List;
 
 import stacklight.models.Issue;
+import stacklight.models.Solution;
 
 /**
  * This is a interface for my repository implementation 
@@ -14,4 +15,5 @@ public interface InterfaceRepository {
 	void addIssue(Issue newIssue);
 	List<Issue> getIssues();
 	Issue getIssueById(int id);
+	void addSoulution(Solution newSolution);
 }

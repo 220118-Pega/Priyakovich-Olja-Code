@@ -26,6 +26,7 @@ public class MainMenu {
 			System.out.println("[0) Create an issue");
 			System.out.println("[1] Get all issues");
 			System.out.println("[2] View issue with proposed solution");
+			System.out.println("[3] Add proposed solution to issue");
 			System.out.println("[x] Exit");
 			
 			String userInput = myscanner.nextLine();
@@ -41,8 +42,11 @@ public class MainMenu {
 			case "2":
 				getSpecificIssue();
 				break;
+			case "3":
+				addSolution();
+				break;
 			case "x":
-				System.out.println("Goodbye");
+				System.out.println("I'll see you soon ;)!");
 				keepgoing = false;
 				break;
 			default:
@@ -55,16 +59,35 @@ public class MainMenu {
 	}
 
 
-	private void getSpecificIssue() {
+	private void addSolution() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter the id of the issue you'd like to view the solutions for: ");
 		String stringId = myscanner.nextLine();
+		System.out.println("Enter the answer to your proposed solution");
+		String answer = myscanner.nextLine();
+		Solution newSolution = new Solution(answer);
+		newSolution.setIssueId(Integer.parseInt(stringId));
+		issueBL.addSolution(newSolution);
+	}
+
+
+	private void getSpecificIssue() {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the id of the issue you'd like to add a solution to: ");
+		String stringId = myscanner.nextLine();
 		Issue foundIssue = issueBL.getIssueById(Integer.parseInt(stringId));
 		System.out.println(foundIssue);
-		for(Solution solution:foundIssue.getSolutions())
-		{
+		try {
+			for(Solution solution:foundIssue.getSolutions())
+			{
 			System.out.println(solution);
+			}
+		} catch (NullPointerException e)
+		{
+			System.out.println("No such issue found, try another id. ");
 		}
+		
+		
 	}
 
 

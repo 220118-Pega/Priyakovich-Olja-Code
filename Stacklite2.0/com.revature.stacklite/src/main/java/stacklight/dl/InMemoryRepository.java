@@ -1,7 +1,6 @@
 package stacklight.dl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import stacklight.models.Issue;
 import stacklight.models.Solution;
@@ -17,13 +16,23 @@ public class InMemoryRepository implements InterfaceRepository {
 	
 	public InMemoryRepository() {
 		//dummy data
-		final List<Solution> solutionListA = new ArrayList<Solution>() {{
+		final List<Solution> solutionListA = new ArrayList<Solution>() {/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+		{
 			add(new Solution("Maybe read through the errors?", 2, 1));
 			add(new Solution("Maybe read through the tears?", 0, 2));
 			
 		}};
 		
-		ListOfIssues = new ArrayList<Issue>(){{
+		ListOfIssues = new ArrayList<Issue>(){/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+		{
 			add(new Issue("Code doesn't work, why??", "My code doesn't work I don't know why", 1, solutionListA));
 			add(new Issue("Code works??", "My code works, work I don't know why", 2));
 	}};

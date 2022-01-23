@@ -13,4 +13,5 @@ import stacklight.models.Issue;
 public interface InterfaceRepository {
 	void addIssue(Issue newIssue);
 	List<Issue> getIssues();
+	Issue getIssueById(int id);
 }

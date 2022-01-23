@@ -9,5 +9,6 @@ public interface IIssueBL {
 	void addIssue(Issue issue);
 
 	List<Issue> getIssues();
+	Issue getIssueById(int id);
 
 }

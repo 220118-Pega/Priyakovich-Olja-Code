@@ -3,8 +3,8 @@ package stacklight.dl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import stacklight.models.Issue;
+import stacklight.models.Solution;
 
 /**
  * Repository that connects to and in memory storage i.e. a static list of issues and solutions 
@@ -17,8 +17,14 @@ public class InMemoryRepository implements InterfaceRepository {
 	
 	public InMemoryRepository() {
 		//dummy data
+		final List<Solution> solutionListA = new ArrayList<Solution>() {{
+			add(new Solution("Maybe read through the errors?", 2, 1));
+			add(new Solution("Maybe read through the tears?", 0, 2));
+			
+		}};
+		
 		ListOfIssues = new ArrayList<Issue>(){{
-			add(new Issue("Code doesn't work, why??", "My code doesn't work I don't know why", 1));
+			add(new Issue("Code doesn't work, why??", "My code doesn't work I don't know why", 1, solutionListA));
 			add(new Issue("Code works??", "My code works, work I don't know why", 2));
 	}};
 		
@@ -42,4 +48,18 @@ public class InMemoryRepository implements InterfaceRepository {
 		return InMemoryRepository.ListOfIssues;
 	}
 
+	@Override
+	public Issue getIssueById(int id) {
+		// TODO Auto-generated method stub
+		Issue foundIssue = null;
+		for(Issue issue:ListOfIssues)
+		{
+			if(issue.getId() == id)
+			{
+				foundIssue = issue;
+			}
+		}
+		return foundIssue;
+	}
 }
+

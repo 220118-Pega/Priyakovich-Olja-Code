@@ -21,4 +21,9 @@ public class IssueBL implements IIssueBL {
 	{
 		return repo.getIssues();
 	}
+	@Override
+	public Issue getIssueById(int id) {
+		// TODO Auto-generated method stub
+		return repo.getIssueById(id);
+	}
 }

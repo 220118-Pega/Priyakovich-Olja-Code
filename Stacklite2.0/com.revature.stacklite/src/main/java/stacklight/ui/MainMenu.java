@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import stacklight.bl.IIssueBL;
 import stacklight.models.Issue;
+import stacklight.models.Solution;
+
 
 public class MainMenu {
 	private Scanner myscanner;
@@ -23,6 +25,7 @@ public class MainMenu {
 			System.out.println("Welcome to Stacklight, what do you wanna do?");
 			System.out.println("[0) Create an issue");
 			System.out.println("[1] Get all issues");
+			System.out.println("[2] View issue with proposed solution");
 			System.out.println("[x] Exit");
 			
 			String userInput = myscanner.nextLine();
@@ -35,6 +38,9 @@ public class MainMenu {
 				System.out.println("Getting issues...");
 				getIssues();
 				break;
+			case "2":
+				getSpecificIssue();
+				break;
 			case "x":
 				System.out.println("Goodbye");
 				keepgoing = false;
@@ -46,6 +52,19 @@ public class MainMenu {
 			
 		}while(keepgoing);
 		
+	}
+
+
+	private void getSpecificIssue() {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the id of the issue you'd like to view the solutions for: ");
+		String stringId = myscanner.nextLine();
+		Issue foundIssue = issueBL.getIssueById(Integer.parseInt(stringId));
+		System.out.println(foundIssue);
+		for(Solution solution:foundIssue.getSolutions())
+		{
+			System.out.println(solution);
+		}
 	}
 
 

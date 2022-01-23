@@ -1,5 +1,7 @@
 package stacklight.models;
 
+import java.util.List;
+
 /**
  * This is a class used to model coding issues
  * @author oljap.
@@ -16,6 +18,7 @@ public class Issue {
 	private String title;
 	private String description;
 	private int Id;
+	private List<Solution> solutions;
 	
 	
 //Constructors
@@ -38,6 +41,11 @@ public class Issue {
 		this(title, description);
 		this.Id = id;
 	}
+	public Issue(String title, String description, int id, List<Solution> solutions)
+	{
+		this(title, description, id);
+		this.solutions = solutions;
+	}
 	// having multiple constructors is a form of polymorphism, called method overloading
 	
 	//Methods
@@ -59,6 +67,13 @@ public class Issue {
 	}
 	public void setId(int id) {
 		Id = id;
+	}
+	
+	public List<Solution> getSolutions() {
+		return solutions;
+	}
+	public void setSolutions(List<Solution> solutions) {
+		this.solutions = solutions;
 	}
 	//Format of object when converted to string
 	@Override

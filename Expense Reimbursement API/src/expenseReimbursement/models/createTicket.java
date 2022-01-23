@@ -8,12 +8,13 @@ public class createTicket {
 
 	
 	public createTicket() {
-			
+		this("thinking of a title", "not sure about description", 0);
 	}
 	
 	public createTicket(String title, String description) {
 		this.title = title;
 		this.description = description;
+		
 	}
 	
 	public createTicket (String title, String description, int id)
@@ -21,6 +22,7 @@ public class createTicket {
 		this(title, description);
 		this.id = id;
 	}
+	
 
 	public String getTitle() {
 		return title;
@@ -42,13 +44,9 @@ public class createTicket {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	@Override
 	public String toString() {
-		return "createTicket [title=" + title + ", description=" + description + ", id=" + id + "]";
+		return "createTicket [title = " + title + ", description = " + description + ", id = " + id + "]";
 	}
 	
 	

@@ -21,7 +21,7 @@ public class MainMenu {
 		
 		do {
 			System.out.println("Welcome to Stacklight, what do you wanna do?");
-			System.out.println("[0) Create and issue");
+			System.out.println("[0) Create an issue");
 			System.out.println("[1] Get all issues");
 			System.out.println("[x] Exit");
 			

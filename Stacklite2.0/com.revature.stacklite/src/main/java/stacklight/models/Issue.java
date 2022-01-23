@@ -63,7 +63,7 @@ public class Issue {
 	//Format of object when converted to string
 	@Override
 	public String toString() {
-		return "Issue [title=" + title + ", description=" + description + ", Id=" + Id + "]";
+		return "Issue [title = " + title + ", description = " + description + ", Id= " + Id + "]";
 	}
 	
 

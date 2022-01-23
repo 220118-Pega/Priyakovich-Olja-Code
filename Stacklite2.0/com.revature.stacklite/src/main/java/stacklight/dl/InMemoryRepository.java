@@ -22,8 +22,8 @@ public class InMemoryRepository implements InterfaceRepository {
 			private static final long serialVersionUID = 1L;
 
 		{
-			add(new Solution("Maybe read through the errors?", 2, 1));
-			add(new Solution("Maybe read through the tears?", 0, 2));
+			add(new Solution(" Maybe read through the errors?", 2, 1));
+			add(new Solution(" Maybe read through the tears?", 0, 2));
 			
 		}};
 		

@@ -1,53 +1,62 @@
 package expenseReimbursement.models;
 
-public class createTicket {
-	private String title;
-	private String description;
-	private int id;
-	
+import java.awt.Window.Type;
+import java.io.ObjectInputFilter.Status;
+import java.time.LocalDate;
 
+
+	//Field
+	public class createTicket {
+		private String reinbursement; 
+		private int id;
+		Status status;
+		Type type; 
+		LocalDate date = LocalDate.now();
 	
-	public createTicket() {
-		this("thinking of a title", "not sure about description", 0);
-	}
 	
-	public createTicket(String title, String description) {
-		this.title = title;
-		this.description = description;
-		
-	}
-	
-	public createTicket (String title, String description, int id)
-	{
-		this(title, description);
+	//constructors
+	public createTicket(String reinbursement, int id, Status status, Type type, LocalDate date) {
+		super();
+		this.reinbursement = reinbursement;
 		this.id = id;
-	}
-	
-
-	public String getTitle() {
-		return title;
+		this.status = status;
+		this.type = type;
+		this.date = date;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+
+
+	public String getReinmursement() {
+		return reinbursement;
 	}
 
-	public String getDescription() {
-		return description;
+
+
+	public void setReinmursement(String reinmursement) {
+		this.reinbursement = reinmursement;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "createTicket [title = " + title + ", description = " + description + ", id = " + id + "]";
+		return "createTicket [reinmursement=" + reinbursement + ", id=" + id + "]";
 	}
+	
+
+	
 	
 	
 	

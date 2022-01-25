@@ -1,8 +1,6 @@
 package expenseReimbursement;
 
 import java.util.Scanner;
-
-import expenseReimbursement.models.createTicket;
 import expenseReimbursement.ui.MainMenu;
 
 public class Driver {

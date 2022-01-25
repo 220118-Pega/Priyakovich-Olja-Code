@@ -51,7 +51,7 @@ public class MainMenu {
 	private void requestReimb() {
 		// TODO Auto-generated method stub
 		System.out.println("Select type of your Reimbursement: ");
-		System.out.println(myscanner.nextLine());
+//		System.out.println(myscanner.nextLine());
 		System.out.println("Type:[L]LODGING, [T]TRAVEL, [F]FOOD,[0]OTHER");
 		System.out.println(myscanner.nextLine());
 		String select = myscanner.nextLine().toLowerCase();

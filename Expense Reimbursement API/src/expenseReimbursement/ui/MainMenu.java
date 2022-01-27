@@ -4,6 +4,7 @@ import java.io.ObjectInputFilter.Status;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import expenseReimbursement.bl.ticketBL;
 import expenseReimbursement.enums.Type;
 import expenseReimbursement.models.createTicket;
 
@@ -60,7 +61,7 @@ public class MainMenu {
 		System.out.println("Type:[L]LODGING, [T]TRAVEL, [F]FOOD,[0]OTHER");
 		String select = myscanner.nextLine().toLowerCase();
 		
-		Type type;
+		Type type = null;
 		switch (select) {
 		case "l":
 			type = Type.Lodging; 
@@ -78,10 +79,10 @@ public class MainMenu {
 			System.out.println("Sorry wrong input, please try again");
 			break;
 		}
-		createTicket newTicket= new createTicket(newTicket);
 	}
+	private void viewreimb() {
+		// TODO Auto-generated method stub
 		
-		private void viewreimb() {
-		System.out.println();
 	}
 }
+		

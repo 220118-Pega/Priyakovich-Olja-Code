@@ -8,40 +8,32 @@ import java.time.LocalDate;
 	
 	public class createTicket {
 		//Fields
-		private int id;
-		private Type type;
-		private Status status;
-		private String amount;
-		private LocalDate date = LocalDate.now();
-	
+		int id;
+		double amount;
+		Status status;
+		Type type;
+		LocalDate date = LocalDate.now()
+;	
 	
 	//constructors
 
-	public createTicket(int id, Type type, Status status, String amount, LocalDate date) {
+	public createTicket(double amount, Status status, Type type, LocalDate date) {
 		
-		
-		this.id = id;
-		this.type = type;
-		this.status = status;
 		this.amount = amount;
+		this.status = status;
+		this.type = type;
 		this.date = date;
+		
 	}
 
 
-	public createTicket(Type type, Status status, long amount, int id, LocalDate date) {
-		this(null, id, type, status, amount);
-		this.id = id;
-		this.date = date;
+	public createTicket(double amount, Status status, Type type, LocalDate date, int id) {
+		this(amount, status, type, date);
+		
+		
 	}
-
-
-	public createTicket(String name2, int id2, Type type2, Status status2, long amount2) {
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-	public createTicket(Object amount2) {
+	
+	public createTicket(double amount, Status status) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -76,7 +68,7 @@ import java.time.LocalDate;
 	}
 
 
-	public String getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 

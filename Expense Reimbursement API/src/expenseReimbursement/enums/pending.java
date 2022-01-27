@@ -1,5 +1,5 @@
 package expenseReimbursement.enums;
 
-public class pending {
+public enum pending {
 
 }

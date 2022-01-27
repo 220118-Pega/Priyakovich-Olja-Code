@@ -20,7 +20,7 @@ public class InMemoryRepository implements interfaceRepo {
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;{
-			add(new createTicket(7.22, Status.status, null, LocalDate.now());
+			add(new createTicket(7.22, Status.pending, Type.Lodging, LocalDate.now());
 		}};
 	};
 	
@@ -51,6 +51,12 @@ public class InMemoryRepository implements interfaceRepo {
 
 	@Override
 	public createTicket setTicketById(int id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public createTicket filteredTickets(enums.Status status) {
 		// TODO Auto-generated method stub
 		return null;
 	}

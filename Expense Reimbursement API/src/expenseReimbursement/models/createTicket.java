@@ -3,8 +3,7 @@ package expenseReimbursement.models;
 import java.awt.Window.Type;
 import java.io.ObjectInputFilter.Status;
 import java.time.LocalDate;
-
-
+import enums.*;
 	
 	public class createTicket {
 		//Fields
@@ -73,7 +72,7 @@ import java.time.LocalDate;
 	}
 
 
-	public void setAmount(String amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 

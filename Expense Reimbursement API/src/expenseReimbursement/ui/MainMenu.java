@@ -3,16 +3,20 @@ package expenseReimbursement.ui;
 import java.io.ObjectInputFilter.Status;
 import java.time.LocalDate;
 import java.util.Scanner;
-
+import expenseReimbursement.enums.*;
+import expenseReimbursement.bl.interTicketBL;
 import expenseReimbursement.bl.ticketBL;
 import expenseReimbursement.enums.Type;
 import expenseReimbursement.models.createTicket;
 
 public class MainMenu {
 	private Scanner myscanner;
-	private int amont;
-	public MainMenu(Scanner myscanner) {
+	private interTicketBL ticketBL;
+	
+	public MainMenu(Scanner myscanner, interTicketBL ticketBL) {
 		this.myscanner = myscanner;
+		this.ticketBL = ticketBL;
+	
 	}
 	
 	public void Start()
@@ -79,10 +83,26 @@ public class MainMenu {
 			System.out.println("Sorry wrong input, please try again");
 			break;
 		}
+		createTicket newTicket = null;
+		ticketBL ticketBL = new ticketBL(null);
+		ticketBL.addTicket(newTicket);
+		System.out.println(newTicket);
+		
+//		createTicket newTicket = new createTicket(amount, Status.pending, type, LocalDate.now());
 	}
 	private void viewreimb() {
 		// TODO Auto-generated method stub
-		
+		for (createTicket newTicket: ticketBL.getTickets1()) {
+			System.out.println(newTicket);
+		}
+		System.out.println("Tickets by status:[A] Approved, [P] Pending, [R] Rejected");
+		String select = myscanner.nextLine().toLowerCase();
+		createTicket filterTickets;
+		switch (select) {
+		case "a":
+//			filterTickets = ticketBL.filteredTickets(Status.approved());
+//			System.out.println(filterTickets);
+		}
 	}
 }
 		

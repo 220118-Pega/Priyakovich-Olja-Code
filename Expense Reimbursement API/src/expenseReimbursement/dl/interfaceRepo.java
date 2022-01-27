@@ -8,8 +8,9 @@ import expenseReimbursement.models.createTicket;
 public interface interfaceRepo {
 	public void addTicket(createTicket newTicket);
 		List<createTicket>getTickets();
-		createTicket filteredTickets(Status status);
+		createTicket filteredTickets(enums.Status status);
 		createTicket getticketById(int id) throws Exception;
 		createTicket setTicketById(int id) throws Exception;
+		createTicket filteredTickets(Status status);
 		
 }

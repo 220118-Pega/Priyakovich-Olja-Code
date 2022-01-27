@@ -98,7 +98,7 @@ import java.time.LocalDate;
 
 	@Override
 	public String toString() {
-		return "createTicket [Name=" + Name + ", id=" + id + ", type=" + type + ", status=" + status + ", amount="
+		return "createTicket [id=" + id + ", type=" + type + ", status=" + status + ", amount="
 				+ amount + ", date=" + date + "]";
 	}
 	

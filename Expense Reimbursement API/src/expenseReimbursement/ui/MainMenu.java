@@ -1,6 +1,7 @@
 package expenseReimbursement.ui;
 
 import java.io.ObjectInputFilter.Status;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import expenseReimbursement.enums.Type;
@@ -8,6 +9,7 @@ import expenseReimbursement.models.createTicket;
 
 public class MainMenu {
 	private Scanner myscanner;
+	private int amont;
 	public MainMenu(Scanner myscanner) {
 		this.myscanner = myscanner;
 	}
@@ -52,10 +54,12 @@ public class MainMenu {
 	
 
 	private void requestReimb() {
-
+		System.out.println("Enter the amout to be reimburst");
+		double amount = Double.parseDouble(myscanner.nextLine());
 		System.out.println("Select type of your Reimbursement: ");
 		System.out.println("Type:[L]LODGING, [T]TRAVEL, [F]FOOD,[0]OTHER");
 		String select = myscanner.nextLine().toLowerCase();
+		
 		Type type;
 		switch (select) {
 		case "l":
@@ -74,7 +78,7 @@ public class MainMenu {
 			System.out.println("Sorry wrong input, please try again");
 			break;
 		}
-		
+		createTicket newTicket= new createTicket(newTicket);
 	}
 		
 		private void viewreimb() {

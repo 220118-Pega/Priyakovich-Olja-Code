@@ -6,7 +6,8 @@ import java.util.List;
 import expenseReimbursement.models.createTicket;
 
 public interface interfaceRepo {
-	public void addTicket(createTicket newTicket);
+	
+	void addTicket(createTicket newTicket);
 		List<createTicket>getTickets();
 		createTicket filteredTickets(enums.Status status);
 		createTicket getticketById(int id) throws Exception;

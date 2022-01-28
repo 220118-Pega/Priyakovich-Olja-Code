@@ -1,9 +1,6 @@
 package expenseReimbursement.ui;
-
-import java.io.ObjectInputFilter.Status;
-import java.time.LocalDate;
+import enums.Status;
 import java.util.Scanner;
-import expenseReimbursement.enums.*;
 import expenseReimbursement.bl.interTicketBL;
 import expenseReimbursement.bl.ticketBL;
 import expenseReimbursement.enums.Type;
@@ -26,7 +23,7 @@ public class MainMenu {
 			System.out.println("What do you want to do?");
 			System.out.println("[1] Request reimbursement");
 			System.out.println("[2] View requested reimbursement");
-			System.out.println("[3] Access management system");
+			System.out.println("[3] View reimbursement by id");
 			System.out.println("[4] Exit");
 		
 			String userInput = myscanner.nextLine();
@@ -42,6 +39,7 @@ public class MainMenu {
 				break;
 			case "3":
 				System.out.println("Accessing Management system");
+				viewReimbById();
 			case "4":
 				System.out.println("Goodbye");
 				keepgoing = false;
@@ -63,12 +61,13 @@ public class MainMenu {
 		System.out.println("Select type of your Reimbursement: ");
 		System.out.println("Type:[L]LODGING, [T]TRAVEL, [F]FOOD,[0]OTHER");
 		String userInput = myscanner.nextLine();
-		System.out.println("Enter the amout to be reimburst");
+		System.out.println("Enter the amount:");
 		double amount = Double.parseDouble(myscanner.nextLine());
 		String select = myscanner.nextLine().toLowerCase();
+		String userInput1 = myscanner.nextLine();
 		
 		Type type = null;
-		switch (userInput) {
+		switch (userInput1) {
 		case "l":
 			type = Type.Lodging; 
 			break;
@@ -90,6 +89,7 @@ public class MainMenu {
 		ticketBL.addTicket(newTicket);
 		System.out.println(newTicket);
 		
+		
 //		createTicket newTicket = new createTicket(amount, Status.pending, type, LocalDate.now());
 	}
 	private void viewreimb() {
@@ -103,9 +103,62 @@ public class MainMenu {
 		createTicket filterTickets;
 		switch (userInput) {
 		case "a":
-//			filterTickets = ticketBL.filteredTickets(Status.approved());
-//			System.out.println(filterTickets);
-		}
+			filterTickets = ticketBL.filteredTickets(Status.approved());
+			System.out.println(filterTickets);
+			break;
+		case "p":
+			filterTickets = ticketBL.filteredTickets(Status.pending());
+			System.out.println(filterTickets);
+			break;
+		case "r":
+			filterTickets = ticketBL.filteredTickets(Status.rejected());
+			System.out.println(filterTickets);
+			break;
+		case "x":
+			System.out.print("Main Menu");
+			break;
+			
+		default:
+			System.out.println("Sorry wrong input, please try again");
+			
+		}	
 	}
+	
+	private void viewReimbById() {
+		System.out.println("Select ticket by ID:");
+		for (createTicket ticket: ticketBL.getTickets1()) {
+			System.out.println(ticket);
+	}	
+		int select = Integer.parseInt(myscanner.nextLine());
+		createTicket selectedTicket;
+		try {
+			
+			selectedTicket = ticketBL.getTicketById(select);
+			System.out.println(selectedTicket);
+			System.out.println("Update status: [A] Accept, [R] Rejected, [X]exit");
+			String userInput = myscanner.nextLine().toLowerCase();
+			switch (userInput) {
+			case "a":
+				selectedTicket.setStatus(Status.approved);
+				System.out.println("Ticket Approved");
+			case "r":
+				selectedTicket.setStatus(Status.rejected);
+				System.out.println("Ticket Rejected");
+				break;
+			case "x":
+				System.out.println("Main Menu");
+				break;
+				
+			default:
+				break;
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+			
+	}
+		
+	
 }
 		

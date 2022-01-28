@@ -37,6 +37,11 @@ import java.time.LocalDate;
 	}
 
 
+	public createTicket(createTicket createTicket) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getId() {
 		return id;
 	}

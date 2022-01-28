@@ -1,8 +1,8 @@
 package expenseReimbursement.enums;
 
-public class Status {
+public enum Status {
 	
-		pending
+		pending,
 		approved,
 		rejected;
 	};

@@ -1,9 +1,11 @@
 package expenseReimbursement.enums;
 
 public class Type {
-	public static Type Lodging;
-	public static Type Travel;
-	public static Type Food;
-	public static Type Other; 
-	
-};
+
+	public static final Type Lodging = null;
+	public static final Type Travel = null;
+	public static final Type Food = null;
+	public static final Type Other = null;
+		
+	}
+

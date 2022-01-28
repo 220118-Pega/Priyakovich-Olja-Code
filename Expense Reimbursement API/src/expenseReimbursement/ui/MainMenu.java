@@ -18,7 +18,7 @@ public class MainMenu {
 		this.ticketBL = ticketBL;
 	
 	}
-	
+
 	public void Start()
 	{
 		boolean keepgoing = true;
@@ -59,14 +59,16 @@ public class MainMenu {
 	
 
 	private void requestReimb() {
-		System.out.println("Enter the amout to be reimburst");
-		double amount = Double.parseDouble(myscanner.nextLine());
+		
 		System.out.println("Select type of your Reimbursement: ");
 		System.out.println("Type:[L]LODGING, [T]TRAVEL, [F]FOOD,[0]OTHER");
+		String userInput = myscanner.nextLine();
+		System.out.println("Enter the amout to be reimburst");
+		double amount = Double.parseDouble(myscanner.nextLine());
 		String select = myscanner.nextLine().toLowerCase();
 		
 		Type type = null;
-		switch (select) {
+		switch (userInput) {
 		case "l":
 			type = Type.Lodging; 
 			break;
@@ -92,13 +94,14 @@ public class MainMenu {
 	}
 	private void viewreimb() {
 		// TODO Auto-generated method stub
-		for (createTicket newTicket: ticketBL.getTickets1()) {
-			System.out.println(newTicket);
+		for (createTicket ticket: ticketBL.getTickets1()) {
+			System.out.println(ticket);
 		}
 		System.out.println("Tickets by status:[A] Approved, [P] Pending, [R] Rejected");
-		String select = myscanner.nextLine().toLowerCase();
+		System.out.println();
+		String userInput = myscanner.nextLine().toLowerCase();
 		createTicket filterTickets;
-		switch (select) {
+		switch (userInput) {
 		case "a":
 //			filterTickets = ticketBL.filteredTickets(Status.approved());
 //			System.out.println(filterTickets);

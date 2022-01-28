@@ -11,7 +11,6 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.revature.stacklite.dl.ConnectionFactory;
 import com.revature.stacklite.models.Issue;
 
 public class IssueDAO implements DAO<Issue, Integer> {

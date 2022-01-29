@@ -3,6 +3,10 @@ package Models;
 import java.io.ObjectInputFilter.Status;
 import java.time.LocalDate;
 import java.util.Locale.Category;
+
+
+
+
 public class Ticket {
 	
 	String description;
@@ -33,6 +37,10 @@ public class Ticket {
 	}
 
 	
+	public Ticket(double d, ui.Status pending, ui.Category food, LocalDate now, String string, int i) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getDescription() {
 		return description;
 	}

@@ -20,6 +20,7 @@ public class InMemoryRepository implements interfaceRepo {
 		listOfTickets = new ArrayList<createTicket>(){{
 			new createTicket(new createTicket(44, Status.pending, Type.Lodging, LocalDate.now(),1));
 		}};
+		latestId = 1;
 	};
 
 

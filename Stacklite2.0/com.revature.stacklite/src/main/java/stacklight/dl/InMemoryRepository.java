@@ -2,7 +2,7 @@ package stacklight.dl;
 
 import java.util.ArrayList;
 import java.util.List;
-import stacklight.models.Issue;
+import stacklight.models.Ticket;
 import stacklight.models.Solution;
 
 /**
@@ -11,7 +11,7 @@ import stacklight.models.Solution;
  *
  */
 public class InMemoryRepository implements InterfaceRepository {
-	private static ArrayList<Issue> ListOfIssues;
+	private static ArrayList<Ticket> ListOfIssues;
 	private static int LatestId;
 	
 	public InMemoryRepository() {
@@ -27,14 +27,14 @@ public class InMemoryRepository implements InterfaceRepository {
 			
 		}};
 		
-		ListOfIssues = new ArrayList<Issue>(){/**
+		ListOfIssues = new ArrayList<Ticket>(){/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
 
 		{
-			add(new Issue("Code doesn't work, why?", "My code doesn't work I don't know why", 1, solutionListA));
-			add(new Issue("Code works?", "My code works, I don't know why", 2));
+			add(new Ticket("Code doesn't work, why?", "My code doesn't work I don't know why", 1, solutionListA));
+			add(new Ticket("Code works?", "My code works, I don't know why", 2));
 	}};
 		
 //	ListOfIssues = Arrays.asList(
@@ -44,7 +44,7 @@ public class InMemoryRepository implements InterfaceRepository {
 }
 	
 	@Override
-	public void addIssue(Issue newIssue) {
+	public void addIssue(Ticket newIssue) {
 		// TODO Auto-generated method stub
 		newIssue.setId(LatestId);
 		ListOfIssues.add(newIssue);
@@ -52,17 +52,17 @@ public class InMemoryRepository implements InterfaceRepository {
 	}
 
 	@Override
-	public List<Issue> getIssues() {
+	public List<Ticket> getIssues() {
 		// TODO Auto-generated method stub
 		return InMemoryRepository.ListOfIssues;
 	}
 
 	@Override
-	public Issue getIssueById(int id) throws Exception {
+	public Ticket getIssueById(int id) throws Exception {
 		// throw vs throws:
 		//throw keyword in code block, throws keyword in method signature
-		Issue foundIssue = null;
-		for(Issue issue:ListOfIssues)
+		Ticket foundIssue = null;
+		for(Ticket issue:ListOfIssues)
 		{
 			if(issue.getId() == id)
 			{
@@ -76,11 +76,17 @@ public class InMemoryRepository implements InterfaceRepository {
 	@Override
 	public void addSoulution(Solution newSolution) throws Exception {
 		// TODO Auto-generated method stub
-		Issue issue2Update = getIssueById(newSolution.getIssueId());
+		Ticket issue2Update = getIssueById(newSolution.getIssueId());
 		List<Solution> existingSolutions = issue2Update.getSolutions();
 		if(existingSolutions == null) existingSolutions = new ArrayList<Solution>();
 		existingSolutions.add(newSolution);
 		issue2Update.setSolutions(existingSolutions); 
+	}
+
+	@Override
+	public void addSolution(Solution newSolution) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

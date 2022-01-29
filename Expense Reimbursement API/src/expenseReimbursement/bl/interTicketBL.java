@@ -10,6 +10,7 @@ public interface interTicketBL {
 		List<createTicket> getTickets1();
 		createTicket filteredTickets (Status status);
 		createTicket getTicketById (int id) throws Exception;
+		List<createTicket> getTickets();
 	}
 
 

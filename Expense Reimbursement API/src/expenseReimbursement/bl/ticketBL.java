@@ -23,7 +23,7 @@ public class ticketBL implements interTicketBL{
 	}
 
 	@Override
-	public List<createTicket> getTickets1() {
+	public List<createTicket> getTickets() {
 		// TODO Auto-generated method stub
 		return repo.getTickets();
 	}

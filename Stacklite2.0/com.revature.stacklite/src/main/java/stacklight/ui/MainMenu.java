@@ -3,7 +3,7 @@ package stacklight.ui;
 import java.util.Scanner;
 
 import stacklight.bl.IIssueBL;
-import stacklight.models.Issue;
+import stacklight.models.Ticket;
 import stacklight.models.Solution;
 
 
@@ -22,21 +22,21 @@ public class MainMenu {
 		boolean keepgoing = true;
 		
 		do {
-			System.out.println("Welcome to Stacklight, what do you wanna do?");
-			System.out.println("[0) Create an issue");
-			System.out.println("[1] Get all issues");
-			System.out.println("[2] View issue with proposed solution");
-			System.out.println("[3] Add proposed solution to issue");
+			System.out.println("Welcome, what do you wanna do?");
+			System.out.println("[0) Request reimbursements");
+			System.out.println("[1] View tickets");
+			System.out.println("[2] View all tickets");
+			System.out.println("[3] Update request");
 			System.out.println("[x] Exit");
 			
 			String userInput = myscanner.nextLine();
 			switch(userInput) {
 			case "0":
-				System.out.println("Creating an issue");
+				System.out.println("Creating ticket...");
 				createIssue();
 				break;
 			case "1":
-				System.out.println("Getting issues...");
+				System.out.println("View all tickets");
 				getIssues();
 				break;
 			case "2":
@@ -46,7 +46,7 @@ public class MainMenu {
 				addSolution();
 				break;
 			case "x":
-				System.out.println("I'll see you soon ;)!");
+				System.out.println("Goodbye!");
 				keepgoing = false;
 				break;
 			default:
@@ -81,7 +81,7 @@ public class MainMenu {
 		// TODO Auto-generated method stub
 		System.out.println("Enter the id of the issue you'd like to add a solution to: ");
 		String stringId = myscanner.nextLine();
-		Issue foundIssue;
+		Ticket foundIssue;
 		try {
 			foundIssue = issueBL.getIssueById(Integer.parseInt(stringId));
 			for(Solution solution:foundIssue.getSolutions())
@@ -102,7 +102,7 @@ public class MainMenu {
 
 	private void getIssues() {
 		// TODO Auto-generated method stub
-		for (Issue issue:issueBL.getIssues())
+		for (Ticket issue:issueBL.getIssues())
 		{
 			System.out.println(issue);
 		}
@@ -111,11 +111,11 @@ public class MainMenu {
 
 	private void createIssue() {
 		// TODO Auto-generated method stub
-		System.out.println("Enter a title for your issue: ");
+		System.out.println("Enter a title for your ticket: ");
 		String title = myscanner.nextLine();
-		System.out.println("Enter a description for your isssue: ");
+		System.out.println("Enter a description for your ticket: ");
 		String description = myscanner.nextLine();
-		Issue newIssue = new Issue(title, description);
+		Ticket newIssue = new Ticket(title, description);
 		//saving to storage
 		issueBL.addIssue(newIssue);
 		System.out.println(newIssue);

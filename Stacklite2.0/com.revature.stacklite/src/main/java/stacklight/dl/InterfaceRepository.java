@@ -21,3 +21,4 @@ public interface InterfaceRepository{
 	List<Issue> getIssues();
 	Issue getIssueById(int id) throws Exception;
 	void addSolution(Solution newSolution) throws Exception;
+	void addSoulution(stacklight.models.Solution newSolution) throws Exception;

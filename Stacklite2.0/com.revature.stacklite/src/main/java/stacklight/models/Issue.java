@@ -15,7 +15,7 @@ public class Issue {
 	//used to define characteristics of a class
 	//used to define dependencies of the class 
 	
-	private String title;
+	private String ticket;
 	private String description;
 	private int Id;
 	private List<Solution> solutions;
@@ -32,7 +32,7 @@ public class Issue {
 	public Issue(String title, String description) {
 		//the this keyword pertains to the particular instance's title and description properties
 		
-		this.title = title;
+		this.ticket = title;
 		this.description = description;
 	}
 	public Issue(String title, String description, int id) {
@@ -51,10 +51,10 @@ public class Issue {
 	//Methods
 		//describe behavior of your class
 	public String getTitle() {
-		return title;
+		return ticket;
 	}
 	public void setTitle(String title) {
-		this.title = title;
+		this.ticket = title;
 	}
 	public String getDescription() {
 		return description;
@@ -78,7 +78,7 @@ public class Issue {
 	//Format of object when converted to string
 	@Override
 	public String toString() {
-		return "Issue [title = " + title + ", description = " + description + ", Id= " + Id + "]";
+		return "Issue [title = " + ticket + ", description = " + description + ", Id= " + Id + "]";
 	}
 	
 

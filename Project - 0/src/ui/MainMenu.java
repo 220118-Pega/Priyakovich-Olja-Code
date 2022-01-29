@@ -1,7 +1,9 @@
 package ui;
 
-
+import java.io.ObjectInputFilter.Status;
+import java.time.LocalDate;
 import java.util.Scanner;
+import Models.Ticket;
 
 
 public class MainMenu {
@@ -44,7 +46,6 @@ public class MainMenu {
 		}while(keepgoing);
 	}
 
-	@SuppressWarnings("unused")
 	private void createTicket() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter employee id:");
@@ -54,7 +55,6 @@ public class MainMenu {
 		System.out.println("What type: [L]LODGING, [T]TRAVEL,[F]FOOD,[E]ENTERTAINMENT[O]OTHER");
 		String select = myscanner.nextLine().toLowerCase();
 		Category category = null;
-		
 		switch(select) {
 		case "l":
 			category = Category.Lodging;
@@ -73,8 +73,11 @@ public class MainMenu {
 		default:
 			System.out.println("Wrong input, please try again");
 			break;
-			
 		}
+	
+		Ticket newTicket = new Ticket(Status.pending, amount, category, LocalDate.now(),employee_id);
+		
+		
 		
 	}
 	

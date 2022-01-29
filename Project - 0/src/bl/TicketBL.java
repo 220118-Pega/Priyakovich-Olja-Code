@@ -1,5 +1,8 @@
 package bl;
 
-public class TicketBL {
+import Models.Ticket;
 
+public class TicketBL {
+	public void addTicket(Ticket ticket);
+	
 }

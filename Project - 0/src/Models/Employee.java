@@ -1,9 +1,11 @@
-package expenseReimbursement.models;
+package Models;
 
 public class Employee {
 	int id;
 	String name;
 	Boolean isManager;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -22,5 +24,11 @@ public class Employee {
 	public void setIsManager(Boolean isManager) {
 		this.isManager = isManager;
 	}
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", isManager=" + isManager + "]";
+	}
+	
+	
 	
 }

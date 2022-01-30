@@ -3,9 +3,9 @@ package ui;
 import java.io.ObjectInputFilter.Status;
 import java.time.LocalDate;
 import java.util.Scanner;
+
 import Models.Ticket;
 import bl.ITicketBl;
-import bl.TicketBL;
 
 
 
@@ -21,6 +21,8 @@ public class MainMenu {
 	public void start() {
 		boolean keepgoing = true;
 		do {
+			System.out.println("Enter your name:");
+			myscanner.nextLine();
 			System.out.println("[1] Request reimbursemnt");
 			System.out.println("[2] View my reimbursemnts");
 			System.out.println("[3] View all reimbursements");
@@ -51,6 +53,7 @@ public class MainMenu {
 
 	private void createTicket() {
 		// TODO Auto-generated method stub
+//		String userInput = myscanner.nextLine();
 		System.out.println("Enter employee id:");
 		int employee_id = Integer.parseInt(myscanner.nextLine());
 		System.out.println("Enter the amount:");
@@ -61,6 +64,7 @@ public class MainMenu {
 		switch(select) {
 		case "l":
 			category = Category.Lodging;
+			myscanner.nextLine().toLowerCase();
 			break;
 		case "t":
 			category = Category.Travel;
@@ -77,10 +81,9 @@ public class MainMenu {
 			System.out.println("Wrong input, please try again");
 			break;
 		}
-	
-		Ticket newTicket = new Ticket(Status.pending, amount, category, LocalDate.now(),employee_id);
-		ticketBL.addTicket(newTicket);
-		System.out.println(newTicket);
+//		Ticket newTicket = new Ticket(Status.pending, amount, category, LocalDate.now(),employee_id);
+//		ticketBL.addTicket(newTicket);
+//		System.out.println(newTicket);
 		
 	}
 	
@@ -98,7 +101,7 @@ public class MainMenu {
 		for(Ticket ticket: ticketBL.getTicket()) {
 			System.out.println(ticket);
 		}
-		System.out.println("Filter tickets: [A] Approved, [P] Pending, [R] Rejected, [X] Go Back");
+		System.out.println("Status:[A]Approved, [P]Pending, [R]Rejected, [X]Go Back");
 		String select = myscanner.nextLine().toLowerCase();
 		switch (select) {
 		case "a":

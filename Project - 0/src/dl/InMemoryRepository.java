@@ -14,6 +14,7 @@ public class InMemoryRepository implements IRepository {
 	private static List<Ticket> listOfTickets;
 	private static int latestId;
 	
+	@SuppressWarnings("serial")
 	public InMemoryRepository() {
 		listOfTickets = new ArrayList<Ticket>() {{
 			new Ticket(3.4, Status.pending, Category.Food, LocalDate.now(),"test",1);
@@ -41,6 +42,7 @@ public class InMemoryRepository implements IRepository {
 	@Override
 	public List<Ticket> filterStatus(Status status) {
 		// TODO Auto-generated method stub
+		@SuppressWarnings("unused")
 		ArrayList<Ticket> filtered = new ArrayList<Ticket>();
 		return listOfTickets.stream().filter(ticket -> ticket.getStatus().equals(status)).collect(Collectors.toList());
 		

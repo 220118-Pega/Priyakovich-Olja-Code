@@ -24,7 +24,7 @@ public class Ticket {
 	}
 	
 	public Ticket(Status status, double amount,Category category,LocalDate submission_date, int emloyee_id)
-	{	this(status);
+	{	this.status = status;
 		this.amount = amount;
 		this.category = category;
 		this.submission_date = submission_date;

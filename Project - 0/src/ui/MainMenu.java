@@ -1,11 +1,11 @@
 package ui;
 
-import java.io.ObjectInputFilter.Status;
-import java.lang.System.Logger;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import Models.Ticket;
 import bl.IEmployeeBL;
@@ -19,12 +19,12 @@ public class MainMenu {
 	private Scanner myscanner;
 	private IEmployeeBL employeeBL;
 	private ITicketBl ticketBL;
-	private final Logger logger = (Logger) LogManager.getLogger(this.getClass());
+	private final Logger logger = LogManager.getLogger(this.getClass());
 	
-	public MainMenu (Scanner myscanner, IEmployeeBL employeeBL, EmployeeDAO employeeDAO, TicketDAO ticketDAO) {
+	public MainMenu (Scanner myscanner, IEmployeeBL employeeBL, ITicketBl ticketBL) {
 		this.myscanner = myscanner;
 		this.employeeBL = employeeBL;
-	
+		this.ticketBL = ticketBL;
 		
 	}
 	
@@ -58,8 +58,7 @@ public class MainMenu {
 			default:
 				System.out.println("Sorry wrong input, please try again");
 				break;
-			
-						
+				
 			}
 			
 		}while(keepgoing);
@@ -95,9 +94,9 @@ public class MainMenu {
 			System.out.println("Wrong input, please try again");
 			break;
 		}
-//		Ticket newTicket = new Ticket(Status.pending, amount, category, LocalDate.now(),employee_id);
-//		ticketBL.addTicket(newTicket);
-//		System.out.println(newTicket);
+		Ticket newTicket = new Ticket(Status.pending, amount, category, LocalDate.now(),employee_id);
+		ticketBL.addTicket(newTicket);
+		System.out.println(newTicket);
 		
 	}
 	
@@ -119,17 +118,17 @@ public class MainMenu {
 		String select = myscanner.nextLine().toLowerCase();
 		switch (select) {
 		case "a":
-			for(Ticket ticket: ticketBLfilterStatus(Status.approved)) {
+			for(Ticket ticket: ticketBL.filterStatus(Status.approved)) {
 				System.out.println(ticket);
 			}
 			break;
 		case "p":
-			for(Ticket ticket: ticketBLfilterStatus(Status.pending)) {
+			for(Ticket ticket: ticketBL.filterStatus(Status.pending)) {
 				System.out.println(ticket);
 			}
 			break;
 		case "r":
-			for(Ticket ticket: ticketBLfilterStatus(Status.rejected)) {
+			for(Ticket ticket: ticketBL.filterStatus(Status.rejected)) {
 				System.out.println(ticket);
 			}
 			break;

@@ -1,6 +1,6 @@
 package dl;
 
-import java.lang.System.Logger;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import Models.Ticket;
 import ui.Category;
@@ -84,8 +85,9 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 		// TODO Auto-generated method stub
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "select * from tickets where status = ?::status";
+			String query = "select * from tickets where status = ?";
 			PreparedStatement stmt = conn.prepareStatement(query);
+			stmt.setString(1, status.toString());
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				tickets.add(

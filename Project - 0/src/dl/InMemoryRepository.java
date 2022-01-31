@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import Models.Employee;
 import Models.Ticket;
 import ui.Category;
@@ -13,7 +17,7 @@ public class InMemoryRepository implements IRepository {
 	
 	private static List<Ticket> listOfTickets;
 	private static int latestId;
-	
+	private Logger logger = LogManager.getLogger(this.getClass());
 	@SuppressWarnings("serial")
 	public InMemoryRepository() {
 		listOfTickets = new ArrayList<Ticket>() {{

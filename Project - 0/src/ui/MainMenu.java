@@ -1,19 +1,29 @@
 package ui;
 
 import java.io.ObjectInputFilter.Status;
+import java.lang.System.Logger;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+
 import Models.Ticket;
+import bl.IEmployeeBL;
 import bl.ITicketBl;
+import dl.EmployeeDAO;
+import dl.TicketDAO;
 
 
 
 public class MainMenu {
 	private Scanner myscanner;
+	private IEmployeeBL employeeBL;
 	private ITicketBl ticketBL;
-	public MainMenu (Scanner myscanner) {
+	private final Logger logger = (Logger) LogManager.getLogger(this.getClass());
+	
+	public MainMenu (Scanner myscanner, IEmployeeBL employeeBL, EmployeeDAO employeeDAO, TicketDAO ticketDAO) {
 		this.myscanner = myscanner;
+		this.employeeBL = employeeBL;
 	
 		
 	}

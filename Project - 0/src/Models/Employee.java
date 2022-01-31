@@ -6,6 +6,9 @@ public class Employee {
 	Boolean isManager;
 	
 	
+	public Employee(String string, boolean boolean1, int int1) {
+		// TODO Auto-generated constructor stub
+	}
 	public int getId() {
 		return id;
 	}

@@ -31,13 +31,18 @@ public class Ticket {
 		this.description = description;
 		this.employee_id = employee_id;
 	}
-	public Ticket(double amount, Status status, Category category, String description, LocalDate submission_date, int employee_id, int id)
-	{	this(status, amount, category, submission_date, employee_id);
+	public Ticket(double amount, ui.Status status2, ui.Category category2, String description, LocalDate submission_date, int employee_id, int id)
+	{	this(status2, amount, category2, submission_date, employee_id);
 		this.id = id;
 	}
 
 	
 	public Ticket(double d, ui.Status pending, ui.Category food, LocalDate now, String string, int i) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Ticket(ui.Status status2, double amount2, ui.Category category2, LocalDate submission_date2,
+			int employee_id2) {
 		// TODO Auto-generated constructor stub
 	}
 

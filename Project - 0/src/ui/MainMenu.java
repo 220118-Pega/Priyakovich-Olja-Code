@@ -28,6 +28,10 @@ public class MainMenu {
 		
 	}
 	
+	public MainMenu(Scanner scanner) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void start() {
 		boolean keepgoing = true;
 		do {

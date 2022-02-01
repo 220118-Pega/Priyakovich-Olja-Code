@@ -12,6 +12,7 @@ public interface ITicketBl {
 	Ticket getTicketById(int id) throws Exception;
 	void addTicket(Ticket ticket);
 	void updateTicket(Ticket ticket) throws Exception;
+	Object getEmployeeById(int parseInt);
 	
 	
 }

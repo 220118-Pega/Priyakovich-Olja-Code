@@ -49,6 +49,17 @@ public class TicketBL implements ITicketBl{
 		// TODO Auto-generated method stub
 		repo.updateTicket(ticket);
 	}
+
+	public static void updateSolution(Integer employeeId, Integer newUpVote) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object getEmployeeById(int parseInt) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

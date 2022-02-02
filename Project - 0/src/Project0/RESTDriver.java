@@ -21,7 +21,7 @@ public class RESTDriver {
 	public static void main(String[] args) {
 		
 		IController ticketControler = new TicketControler(
-				new EmployeeBL(new DBRepository(new TicketDAO(), (new EmployeeDAO())));
+				new EmployeeBL(new DBRepository(new EmployeeDAO(), new TicketDAO())));
 		IController employeeController = new EmployeeControler(
 				new EmployeeBL(new DBRepository(new EmployeeDAO(), new TicketDAO())));
 				

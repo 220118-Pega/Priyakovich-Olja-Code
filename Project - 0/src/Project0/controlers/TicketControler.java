@@ -8,7 +8,7 @@ import io.javalin.http.Handler;
 
 public class TicketControler implements IController {
 	private IEmployeeBL employeeBL;
-	public TicketController (IEmployeeBL employeeBL ) {
+	public TicketControler (IEmployeeBL employeeBL ) {
 		this.employeeBL = employeeBL;
 	}
 	

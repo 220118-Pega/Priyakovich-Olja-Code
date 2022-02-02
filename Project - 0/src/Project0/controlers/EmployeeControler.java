@@ -24,7 +24,7 @@ public class EmployeeControler implements IController {
 	public Handler getById() {
 		// TODO Auto-generated method stub
 		return ctx -> {
-			ctx.jsonStream(employeeBL.getTicketsById(Integer.parseInt(ctx.pathParam("employee_Id"))));
+			ctx.jsonStream(employeeBL.getTicketById(Integer.parseInt(ctx.pathParam("employee_Id"))));
 		};
 	}
 

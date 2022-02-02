@@ -1,8 +1,12 @@
 package bl;
-
+import java.util.ArrayList;
 import Models.Employee;
+import Models.Ticket;
 
 public interface IEmployeeBL {
 	void addEmployee (Employee employee);
-	void apdateEmployee(Employee employee) throws Exception;
+	void updateEmployee(Employee employee) throws Exception;
+	Ticket getTicketById(int ticketId);
+	void addTicket(Ticket newTicket);
+	ArrayList<Ticket> getTickets();
 }

@@ -21,7 +21,7 @@ public class Router {
 		app.get("/Ticket", OpenApiBuilder.documented(DocumentationFactory.getDoc("getTicket"), TicketController.getAll()));
 		app.get("/Ticket/{ticket_id}/employee", OpenApiBuilder.documented(DocumentationFactory.getDoc("getTicketById"), TicketController.getById()));
 		app.post("/Ticket",  OpenApiBuilder.documented(DocumentationFactory.getDoc("addTicket"), TicketController.add()));
-		app.post("/Employee", OpenApiBuilder.documented(DocumentationFactory.getDoc("addEmployee"), solutionController.add()));
+		app.post("/Employee", OpenApiBuilder.documented(DocumentationFactory.getDoc("addEmployee"), EmployeeController.add()));
 		app.put("/Employee/{employee_id}", OpenApiBuilder.documented(DocumentationFactory.getDoc("updateEmployee"), EmployeeController.update()));
 		app.get("/Employee/{employee_id}", OpenApiBuilder.documented(DocumentationFactory.getDoc("getEmployee"), EmployeeController.getById()));
 	

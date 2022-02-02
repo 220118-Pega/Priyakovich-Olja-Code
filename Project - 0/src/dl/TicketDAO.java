@@ -25,22 +25,22 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 	@Override
 	public Ticket findById(Integer id) {
 		// TODO Auto-generated method stub
-		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+//		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
 			String query = "select * from tickets where id = ?";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
-			while(rs.next()) {
-				tickets.add(
-						new Ticket(
+			if(rs.next()) {
+				return new 
+						Ticket(
 						rs.getDouble("amount"),
 						Status.valueOf(rs.getString("status")),
 						Category.valueOf(rs.getString("category")),
 						rs.getString("description"),
 						rs.getDate("submission_date").toLocalDate(),
 						rs.getInt("employee_id"),
-						rs.getInt("id")));
+						rs.getInt("id"));
 				}	
 			}catch (SQLException e) {
 				e.printStackTrace();
@@ -56,7 +56,7 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 		// TODO Auto-generated method stub
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "select * from tickets where employee_id = ?";
+			String query = "select * from tickets";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, emloyee_id);
 			ResultSet rs = pstmt.executeQuery();
@@ -73,7 +73,7 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 				}	
 			}catch (SQLException e) {
 				e.printStackTrace();
-				logger.error("Error with conneciton to the DB", e);
+				logger.error("Something went wrong", e);
 			}
 	
 		return tickets;
@@ -85,7 +85,8 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 		// TODO Auto-generated method stub
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "select * from tickets where status = ?";
+			
+			String query = "insert into tickets(amount, status)values(?,?);";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setString(1, status.toString());
 			ResultSet rs = stmt.executeQuery();

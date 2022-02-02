@@ -1,16 +1,16 @@
 package Project0.controlers;
 
 import Models.Employee;
+import bl.IEmployeeBL;
 import bl.ITicketBl;
 import bl.TicketBL;
 import io.javalin.http.Handler;
 
 public class EmployeeControler implements IController {
-	private ITicketBl ticketBL;
-	
-	public EmployeeControler (ITicketBl ticketbl); 
+	private IEmployeeBL employeeBL;
+	public EmployeeControler (IEmployeeBL employeeBL); 
 	{
-		this.ticketBL = ticketBL;
+		this.employeeBL = employeeBL;
 	}
 	
 	
@@ -24,7 +24,7 @@ public class EmployeeControler implements IController {
 	public Handler getById() {
 		// TODO Auto-generated method stub
 		return ctx -> {
-			ctx.jsonStream(ticketBL.getEmployeeById(Integer.parseInt(ctx.pathParam("employee_id"))));
+			ctx.jsonStream(employeeBL.getTicketsById(Integer.parseInt(ctx.pathParam("employee_Id"))));
 		};
 	}
 
@@ -32,7 +32,7 @@ public class EmployeeControler implements IController {
 	public Handler add() {
 		// TODO Auto-generated method stub
 		return ctx -> {
-			TicketBL.addEmployee(ctx.bodyStreamAsClass(Employee.class));
+			employeeBL.addEmployee(ctx.bodyStreamAsClass(Employee.class));
 		};
 	}
 
@@ -42,7 +42,7 @@ public class EmployeeControler implements IController {
 		return ctx -> {
 			Integer newUpVote = Integer.parseInt(ctx.queryParam("upvote"));
 			Integer employeeId = Integer.parseInt(ctx.pathParam("employee_id"));
-			TicketBL.updateSolution(employeeId, newUpVote);
+			employeeBL.updateEmployee(employeeId, newUpVote);
 			ctx.status(204);
 		};
 	}

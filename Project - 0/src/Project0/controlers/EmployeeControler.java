@@ -8,7 +8,7 @@ import io.javalin.http.Handler;
 
 public class EmployeeControler implements IController {
 	private IEmployeeBL employeeBL;
-	public EmployeeControler (IEmployeeBL employeeBL); 
+	public EmployeeControler (IEmployeeBL employeeBL) 
 	{
 		this.employeeBL = employeeBL;
 	}
@@ -40,10 +40,7 @@ public class EmployeeControler implements IController {
 	public Handler update() {
 		// TODO Auto-generated method stub
 		return ctx -> {
-			Integer newUpVote = Integer.parseInt(ctx.queryParam("upvote"));
-			Integer employeeId = Integer.parseInt(ctx.pathParam("employee_id"));
-			employeeBL.updateEmployee(employeeId, newUpVote);
-			ctx.status(204);
+			employeeBL.updateEmployee(ctx.bodyStreamAsClass(Employee.class));
 		};
 	}
 

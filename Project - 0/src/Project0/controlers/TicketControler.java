@@ -49,7 +49,9 @@ public class TicketControler implements IController {
 	@Override
 	public Handler update() {
 		// TODO Auto-generated method stub
-		return null;
+		return ctx -> {
+			employeeBL.updateTicket(ctx.bodyStreamAsClass(Ticket.class));
+		};
 	}
 	
 

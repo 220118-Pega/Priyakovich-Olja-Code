@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import Models.Ticket;
+import bl.EmployeeBL;
 import bl.IEmployeeBL;
 import bl.ITicketBl;
 import dl.EmployeeDAO;
@@ -29,6 +30,10 @@ public class MainMenu {
 	}
 	
 	public MainMenu(Scanner scanner) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public MainMenu(Scanner scanner, EmployeeBL employeeBL2) {
 		// TODO Auto-generated constructor stub
 	}
 

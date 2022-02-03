@@ -9,4 +9,5 @@ public interface IEmployeeBL {
 	Ticket getTicketById(int ticketId);
 	void addTicket(Ticket newTicket);
 	ArrayList<Ticket> getTickets();
+	void updateTicket(Ticket bodyStreamAsClass);
 }

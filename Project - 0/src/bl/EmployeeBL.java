@@ -17,6 +17,11 @@ public class EmployeeBL implements IEmployeeBL {
 	}
 
 
+	public EmployeeBL() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	@Override
 	public void addEmployee(Employee employee) {
 		// TODO Auto-generated method stub
@@ -32,9 +37,9 @@ public class EmployeeBL implements IEmployeeBL {
 	}
 
 	@Override
-	public Ticket getTicketById(int ticketId) {
+	public Ticket getTicketById(int id) throws Exception{
 		// TODO Auto-generated method stub
-		return null;
+		return repo.getTicketById(id);
 	}
 
 	@Override
@@ -47,6 +52,14 @@ public class EmployeeBL implements IEmployeeBL {
 	public ArrayList<Ticket> getTickets() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public void updateTicket(Ticket ticket) throws Exception {
+		// TODO Auto-generated method stub
+		repo.updateTicket(ticket);
+		
 	}}
 	
 	

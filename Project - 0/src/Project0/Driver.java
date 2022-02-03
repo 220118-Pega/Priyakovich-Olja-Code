@@ -16,8 +16,8 @@ public class Driver {
 		MainMenu menu = 
 				new MainMenu(
 				new Scanner(System.in),
-				new EmployeeBL(
-				new DBRepository(new EmployeeDAO(), new TicketDAO())));
+				new EmployeeBL(),
+				new TicketBL(new DBRepository(new EmployeeDAO(), new TicketDAO())));
 		menu.start();
 	}
 

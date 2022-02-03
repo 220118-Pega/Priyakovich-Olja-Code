@@ -56,7 +56,7 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 		// TODO Auto-generated method stub
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "select * from tickets";
+			String query = "select * from tickets where employee_id = ? order by submition_date desc";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, emloyee_id);
 			ResultSet rs = pstmt.executeQuery();
@@ -86,7 +86,7 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
 			
-			String query = "insert into tickets(amount, status)values(?,?);";
+			String query = "select * from tickets(amount, status)values(?,?);";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setString(1, status.toString());
 			ResultSet rs = stmt.executeQuery();
@@ -141,7 +141,7 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 	public void add(Ticket newObject) {
 		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "call insert_ticket";
+			String query = "insert into ticket(amount, status, category, description, submition_date, employee_id) values (?,?,?,?,?,?)";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setDouble(1, newObject.getAmount());
 			pstmt.setString(2, newObject.getStatus().toString());

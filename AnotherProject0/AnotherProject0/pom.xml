@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>tourOfheroes</groupId>
-  <artifactId>tourOfheroes</artifactId>
+  <groupId>AnotherProject0</groupId>
+  <artifactId>AnotherProject0</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <plugins>
@@ -28,7 +28,7 @@
             <configuration>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>tourOfheroes.HelloWorld</mainClass>
+                  <mainClass>AnotherProject0.HelloWorld</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -47,17 +47,12 @@
     <dependency>
       <groupId>io.javalin</groupId>
       <artifactId>javalin</artifactId>
-      <version>4.2.0</version>
+      <version>1.6.0</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.25</version>
     </dependency>
-    <dependency>
-    <groupId>org.postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <version>42.3.1</version>
-</dependency>
   </dependencies>
 </project>

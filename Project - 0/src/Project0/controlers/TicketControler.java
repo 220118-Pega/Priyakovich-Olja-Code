@@ -1,14 +1,12 @@
 package Project0.controlers;
 
 import Models.Ticket;
-import bl.IEmployeeBL;
 import bl.ITicketBl;
-import bl.TicketBL;
 import io.javalin.http.Handler;
 
 public class TicketControler implements IController {
-	private IEmployeeBL employeeBL;
-	public TicketControler (IEmployeeBL employeeBL ) {
+	private ITicketBl employeeBL;
+	public TicketControler (ITicketBl employeeBL ) {
 		this.employeeBL = employeeBL;
 	}
 	
@@ -17,7 +15,7 @@ public class TicketControler implements IController {
 	public Handler getAll() {
 		// TODO Auto-generated method stub
 		return ctx -> {
-			ctx.jsonStream(employeeBL.getTickets());
+			ctx.jsonStream(employeeBL.getTicket());
 		};
 	}
 

@@ -17,7 +17,7 @@ public class Router {
 	}
 	
 	public void setUpEndPoints() {
-		
+	
 		app.get("/Ticket", OpenApiBuilder.documented(DocumentationFactory.getDoc("getTicket"), TicketController.getAll()));
 		app.get("/Ticket/{ticket_id}/employee", OpenApiBuilder.documented(DocumentationFactory.getDoc("getTicketById"), TicketController.getById()));
 		app.post("/Ticket",  OpenApiBuilder.documented(DocumentationFactory.getDoc("addTicket"), TicketController.add()));

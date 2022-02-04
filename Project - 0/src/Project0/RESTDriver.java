@@ -14,21 +14,22 @@ import io.javalin.Javalin;
 import io.javalin.plugin.openapi.OpenApiOptions;
 import io.javalin.plugin.openapi.OpenApiPlugin;
 import io.javalin.plugin.openapi.ui.SwaggerOptions;
-import io.swagger.models.Info;
+import io.swagger.v3.oas.models.info.Info;
+
 
 public class RESTDriver {
 
 	public static void main(String[] args) {
 		
 		IController ticketControler = new TicketControler(
-				new EmployeeBL(new DBRepository(new EmployeeDAO(), new TicketDAO())));
+				new TicketBL(new DBRepository(new EmployeeDAO(), new TicketDAO())));
 		IController employeeController = new EmployeeControler(
 				new EmployeeBL(new DBRepository(new EmployeeDAO(), new TicketDAO())));
 				
 		Javalin app = Javalin.create(config -> {
 			config.registerPlugin(new OpenApiPlugin(getOpenApiOptions()));
-		}).start(7000);
-		Router router = new Router(app, ticketControler, employeeController);
+		}).start(8000);
+		Router router = new Router(app, employeeController, ticketControler);
 		router.setUpEndPoints();
 	}
 	private static OpenApiOptions getOpenApiOptions() {

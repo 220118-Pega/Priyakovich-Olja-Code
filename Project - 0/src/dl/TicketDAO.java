@@ -27,20 +27,19 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 		// TODO Auto-generated method stub
 //		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "select * from tickets where id = ?";
+			String query = "select * from ticket where id = ?";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
-				return new 
-						Ticket(
-						rs.getDouble("amount"),
-						Status.valueOf(rs.getString("status")),
-						Category.valueOf(rs.getString("category")),
-						rs.getString("description"),
-						rs.getDate("submission_date").toLocalDate(),
-						rs.getInt("employee_id"),
-						rs.getInt("id"));
+				return
+						new Ticket(
+								rs.getString("description"),
+								rs.getDouble("amount"),
+								Status.valueOf(rs.getString("status")),
+								Category.valueOf(rs.getString("category")),
+								rs.getTimestamp("submission_date").toLocalDateTime(),
+								rs.getInt("id"));
 				}	
 			}catch (SQLException e) {
 				e.printStackTrace();
@@ -51,84 +50,84 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 	
 	}
 
-	@Override
-	public List<Ticket> getTicketbyEmployeeId(Integer emloyee_id) {
-		// TODO Auto-generated method stub
-		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "select * from tickets where employee_id = ? order by submition_date desc";
-			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, emloyee_id);
-			ResultSet rs = pstmt.executeQuery();
-			while(rs.next()) {
-				tickets.add(
-						new Ticket(
-						rs.getDouble("amount"),
-						Status.valueOf(rs.getString("status")),
-						Category.valueOf(rs.getString("category")),
-						rs.getString("description"),
-						rs.getDate("submission_date").toLocalDate(),
-						rs.getInt("employee_id"),
-						rs.getInt("id")));
-				}	
-			}catch (SQLException e) {
-				e.printStackTrace();
-				logger.error("Something went wrong", e);
-			}
-	
-		return tickets;
-	
-	}
-
-	@Override
-	public List<Ticket> filterStatus(Status status) {
-		// TODO Auto-generated method stub
-		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			
-			String query = "select * from tickets(amount, status)values(?,?);";
-			PreparedStatement stmt = conn.prepareStatement(query);
-			stmt.setString(1, status.toString());
-			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
-				tickets.add(
-						new Ticket(
-						rs.getDouble("amount"),
-						Status.valueOf(rs.getString("status")),
-						Category.valueOf(rs.getString("category")),
-						rs.getString("description"),
-						rs.getDate("submission_date").toLocalDate(),
-						rs.getInt("employee_id"),
-						rs.getInt("id")));
-				}	
-			}catch (SQLException e) {
-				e.printStackTrace();
-				logger.error("Error with conneciton to the DB", e);
-			}
-	
-		return tickets;
-	
-	}
+//	@Override
+//	public List<Ticket> getTicketbyEmployeeId(Integer emloyee_id) {
+//		// TODO Auto-generated method stub
+//		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+//		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
+//			String query = "select * from tickets where employee_id = ? order by submition_date desc";
+//			PreparedStatement pstmt = conn.prepareStatement(query);
+//			pstmt.setInt(1, emloyee_id);
+//			ResultSet rs = pstmt.executeQuery();
+//			while(rs.next()) {
+//				tickets.add(
+//						new Ticket(
+//						rs.getDouble("amount"),
+//						Status.valueOf(rs.getString("status")),
+//						Category.valueOf(rs.getString("category")),
+//						rs.getString("description"),
+//						rs.getDate("submission_date").toLocalDate(),
+//						rs.getInt("employee_id"),
+//						rs.getInt("id")));
+//				}	
+//			}catch (SQLException e) {
+//				e.printStackTrace();
+//				logger.error("Something went wrong", e);
+//			}
+//	
+//		return tickets;
+//	
+//	}
+//
+//	@Override
+//	public List<Ticket> filterStatus(Status status) {
+//		// TODO Auto-generated method stub
+//		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+//		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
+//			
+//			String query = "select * from ticket(amount, status)values(?,?);";
+//			PreparedStatement stmt = conn.prepareStatement(query);
+//			stmt.setString(1, status.toString());
+//			ResultSet rs = stmt.executeQuery();
+//			while(rs.next()) {
+//				tickets.add(
+//						new Ticket(
+//						rs.getDouble("amount"),
+//						Status.valueOf(rs.getString("status")),
+//						Category.valueOf(rs.getString("category")),
+//						rs.getString("description"),
+//						rs.getDate("submission_date").toLocalDate(),
+//						rs.getInt("employee_id"),
+//						rs.getInt("id")));
+//				}	
+//			}catch (SQLException e) {
+//				e.printStackTrace();
+//				logger.error("Error with conneciton to the DB", e);
+//			}
+//	
+//		return tickets;
+//	
+//	}
 
 	@Override
 	public List<Ticket> findAllTickets() {
 		// TODO Auto-generated method stub
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "select * from tickets";
+			String query = "select * from ticket";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				tickets.add(
 						new Ticket(
-						rs.getDouble("amount"),
-						Status.valueOf(rs.getString("status")),
-						Category.valueOf(rs.getString("category")),
-						rs.getString("description"),
-						rs.getDate("submission_date").toLocalDate(),
-						rs.getInt("employee_id"),
-						rs.getInt("id")));
-				}	
+								rs.getString("description"),
+								rs.getDouble("amount"),
+								Status.valueOf(rs.getString("status")),
+								Category.valueOf(rs.getString("category")),
+								rs.getTimestamp("submission_date").toLocalDateTime(),
+								rs.getInt("id")));
+				}
+			
 			}catch (SQLException e) {
 				e.printStackTrace();
 				logger.error("Error with conneciton to the DB", e);
@@ -141,14 +140,14 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 	public void add(Ticket newObject) {
 		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "insert into ticket(amount, status, category, description, submition_date, employee_id) values (?,?,?,?,?,?)";
+			String query = "insert into ticket(amount, status, category, description, submission_date) values (?,?,?,?,?)";
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setDouble(1, newObject.getAmount());
+			pstmt.setInt(1, (int) newObject.getAmount());
 			pstmt.setString(2, newObject.getStatus().toString());
 			pstmt.setString(3, newObject.getCategory().toString());
 			pstmt.setString(4, newObject.getDescription());
-			pstmt.setObject(5, newObject.getSubmission_date());
-			pstmt.setInt(6, newObject.getEmployee_id());
+			pstmt.setObject(5, newObject.getSubmission_date().toLocalDate());
+//			pstmt.setInt(6, newObject.getEmployee_id());
 			pstmt.execute();			
 		}catch (SQLException e) {
 				e.printStackTrace();
@@ -160,7 +159,7 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 	public void update(Ticket newObject) {
 		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "update tickets set status = ? where id = ?";
+			String query = "update ticket set status = ? where id = ?";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, newObject.getStatus().toString());
 			pstmt.setInt(2, newObject.getId());
@@ -168,6 +167,18 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Ticket> getTicketbyEmployeeId(Integer emloyee_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Ticket> filterStatus(Status status) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 	

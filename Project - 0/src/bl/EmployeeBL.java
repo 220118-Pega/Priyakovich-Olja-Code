@@ -58,7 +58,7 @@ public class EmployeeBL implements IEmployeeBL {
 	@Override
 	public void updateTicket(Ticket ticket) throws Exception {
 		// TODO Auto-generated method stub
-		repo.updateTicket(ticket);
+//		repo.updateTicket(ticket);
 		
 	}}
 	

@@ -21,7 +21,7 @@ public class InMemoryRepository implements IRepository {
 	@SuppressWarnings("serial")
 	public InMemoryRepository() {
 		listOfTickets = new ArrayList<Ticket>() {{
-			new Ticket(3.4, Status.pending, Category.Food, LocalDate.now(),"test",1);
+			new Ticket(3.4, Status.PENDING, Category.FOOD, LocalDate.now(),"test",1);
 		}};
 	}
 	

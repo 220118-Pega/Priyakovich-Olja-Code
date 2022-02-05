@@ -1,10 +1,10 @@
 package dl;
 
 import java.util.List;
-
 import Models.Employee;
 import Models.Ticket;
 import ui.Status;
+import ui.Category;
 
 public class DBRepository implements IRepository{
 	private DAO<Employee, Integer> employeeDAO;

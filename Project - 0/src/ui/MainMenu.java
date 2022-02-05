@@ -81,25 +81,25 @@ public class MainMenu {
 		Category category = null;
 		switch(select) {
 		case "l":
-			category = Category.Lodging;
+			category = Category.LODGING;
 			myscanner.nextLine().toLowerCase();
 			break;
 		case "t":
-			category = Category.Travel;
+			category = Category.TRAVEL;
 			break;
 		case "f":
-			category = Category.Food;
+			category = Category.FOOD;
 			break;
 		case "e":
-			category = Category.Entertainment;
+			category = Category.ENTERTAINMENT;
 			break;
 		case "o":
-			category = Category.Other;
+			category = Category.OTHER;
 		default:
 			System.out.println("Wrong input, please try again");
 			break;
 		}
-		Ticket newTicket = new Ticket(Status.pending, amount, category, LocalDate.now(),employee_id);
+		Ticket newTicket = new Ticket(Status.PENDING, amount, category, LocalDate.now(),employee_id);
 		ticketBL.addTicket(newTicket);
 		System.out.println(newTicket);
 		
@@ -123,17 +123,17 @@ public class MainMenu {
 		String select = myscanner.nextLine().toLowerCase();
 		switch (select) {
 		case "a":
-			for(Ticket ticket: ticketBL.filterStatus(Status.approved)) {
+			for(Ticket ticket: ticketBL.filterStatus(Status.APPROVED)) {
 				System.out.println(ticket);
 			}
 			break;
 		case "p":
-			for(Ticket ticket: ticketBL.filterStatus(Status.pending)) {
+			for(Ticket ticket: ticketBL.filterStatus(Status.PENDING)) {
 				System.out.println(ticket);
 			}
 			break;
 		case "r":
-			for(Ticket ticket: ticketBL.filterStatus(Status.rejected)) {
+			for(Ticket ticket: ticketBL.filterStatus(Status.REJECTED)) {
 				System.out.println(ticket);
 			}
 			break;
@@ -161,12 +161,12 @@ public class MainMenu {
 			String userInput = myscanner.nextLine().toLowerCase();
 			switch (userInput) {
 			case "a":
-				selectedTicket.setStatus(Status.approved);
+				selectedTicket.setStatus(Status.APPROVED);
 				ticketBL.updateTicket(selectedTicket);
 				System.out.println("Ticket Approved!");
 				break;
 			case "r":
-				selectedTicket.setStatus(Status.rejected);
+				selectedTicket.setStatus(Status.REJECTED);
 				ticketBL.updateTicket(selectedTicket);
 				System.out.println("Ticket rejected!");
 				break;

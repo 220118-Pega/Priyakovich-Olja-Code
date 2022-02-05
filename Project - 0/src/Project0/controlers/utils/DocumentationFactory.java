@@ -28,10 +28,10 @@ public class DocumentationFactory {
 			return OpenApiBuilder.document().operation(op -> {
 				op.addTagsItem("Employee");
 			}).body(Employee.class).result("201");
-		case "updateEmployee":
+		case "updateTicket":
 			return OpenApiBuilder.document().operation(op -> 
 			{
-				op.addTagsItem("Employee");
+				op.addTagsItem("Ticket");
 			}).queryParam("upvote", Integer.class).result("204");
 		case "getEmployee":
 			return OpenApiBuilder.document().operation(op -> {

@@ -1,9 +1,9 @@
 package ui;
 
 public enum Status {
-	pending,
-	approved,
-	rejected
+	PENDING,
+	APPROVED,
+	REJECTED
 }
 
 

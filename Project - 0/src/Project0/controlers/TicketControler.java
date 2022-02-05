@@ -5,9 +5,10 @@ import bl.ITicketBl;
 import io.javalin.http.Handler;
 
 public class TicketControler implements IController {
-	private ITicketBl employeeBL;
-	public TicketControler (ITicketBl employeeBL ) {
-		this.employeeBL = employeeBL;
+	
+	private ITicketBl ticketBL;
+	public TicketControler (ITicketBl ticketBL ) {
+		this.ticketBL = ticketBL;
 	}
 	
 	
@@ -15,7 +16,7 @@ public class TicketControler implements IController {
 	public Handler getAll() {
 		// TODO Auto-generated method stub
 		return ctx -> {
-			ctx.jsonStream(employeeBL.getTicket());
+			ctx.jsonStream(ticketBL.getTicket());
 		};
 	}
 
@@ -25,7 +26,7 @@ public class TicketControler implements IController {
 		return ctx -> {
 			String id = ctx.pathParam("ticket_id");
 			int ticketId = Integer.parseInt(id);
-			ctx.jsonStream(employeeBL.getTicketById(ticketId));
+			ctx.jsonStream(ticketBL.getTicketById(ticketId));
 		};
 	}
 
@@ -35,7 +36,7 @@ public class TicketControler implements IController {
 		return ctx -> {
 			Ticket newTicket = ctx.bodyAsClass(Ticket.class);
 			try {
-				employeeBL.addTicket(newTicket);
+				ticketBL.addTicket(newTicket);
 				ctx.status(201);
 			}catch (Exception e)
 			{
@@ -48,7 +49,7 @@ public class TicketControler implements IController {
 	public Handler update() {
 		// TODO Auto-generated method stub
 		return ctx -> {
-			employeeBL.updateTicket(ctx.bodyStreamAsClass(Ticket.class));
+			ticketBL.updateTicket(ctx.bodyStreamAsClass(Ticket.class));
 		};
 	}
 	

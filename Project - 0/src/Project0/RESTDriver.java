@@ -23,13 +23,13 @@ public class RESTDriver {
 		
 		IController ticketControler = new TicketControler(
 				new TicketBL(new DBRepository(new EmployeeDAO(), new TicketDAO())));
-		IController employeeController = new EmployeeControler(
-				new EmployeeBL(new DBRepository(new EmployeeDAO(), new TicketDAO())));
+//		IController employeeController = new EmployeeControler(
+//				new EmployeeBL(new DBRepository(new EmployeeDAO(), new TicketDAO())));
 				
 		Javalin app = Javalin.create(config -> {
 			config.registerPlugin(new OpenApiPlugin(getOpenApiOptions()));
 		}).start(8000);
-		Router router = new Router(app, employeeController, ticketControler);
+		Router router = new Router(app, ticketControler);
 		router.setUpEndPoints();
 	}
 	private static OpenApiOptions getOpenApiOptions() {

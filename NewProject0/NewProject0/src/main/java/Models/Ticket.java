@@ -51,6 +51,14 @@ public class Ticket {
 	public void setStatus(Status status) {
 		Status = status;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Ticket [id=" + id + ", name=" + name + ", amount=" + amount + ", Category=" + Category + ", Status="
+				+ Status + "]";
+	}
+	
 	
 	
 }

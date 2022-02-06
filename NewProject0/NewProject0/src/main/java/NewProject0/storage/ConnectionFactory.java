@@ -13,8 +13,6 @@ public class ConnectionFactory {
 	private static final ConnectionFactory connectionFactory = new ConnectionFactory();
 	private Properties props = new Properties();
 
-	// specific to the class functionality (Not all singleton has static blocks)
-
 	static {
 		try {
 			Class.forName("org.postgresql.Driver");

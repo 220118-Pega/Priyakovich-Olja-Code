@@ -24,6 +24,7 @@ public class DocumentationFactory {
 			return OpenApiBuilder.document().operation(op -> {
 				op.addTagsItem("Ticket");
 			}).body(Ticket.class).result("201");
+			
 		case "addEmployee":
 			return OpenApiBuilder.document().operation(op -> {
 				op.addTagsItem("Employee");
@@ -32,7 +33,7 @@ public class DocumentationFactory {
 			return OpenApiBuilder.document().operation(op -> 
 			{
 				op.addTagsItem("Ticket");
-			}).queryParam("upvote", Integer.class).result("204");
+			}).body(Ticket.class).result("201");
 		case "getEmployee":
 			return OpenApiBuilder.document().operation(op -> {
 				op.addTagsItem("Employee");

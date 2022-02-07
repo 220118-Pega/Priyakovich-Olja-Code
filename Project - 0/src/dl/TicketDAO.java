@@ -159,10 +159,11 @@ public class TicketDAO implements DAO <Ticket, Integer>{
 	public void update(Ticket newObject) {
 		// TODO Auto-generated method stub
 		try (Connection conn = ConnectionFactory.getInstance().getconnection()){
-			String query = "update ticket set status = ? where id = ?";
+			String query = "update ticket set status = ?, description = ? where id = ?";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, newObject.getStatus().toString());
-			pstmt.setInt(2, newObject.getId());
+			pstmt.setString(2, newObject.getDescription());
+			pstmt.setInt(3, newObject.getId());
 			pstmt.execute();
 		}catch(SQLException e) {
 			e.printStackTrace();

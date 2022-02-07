@@ -61,7 +61,7 @@ public class TicketDAO {
 	public void addTicket(Ticket newTicket) {
 		try(Connection conn=ConnectionFactory.getInstance().getConnection())
 		{
-			String query  = "insert into heroes (name, amount, category, status) values (?,?,?,CAST(? as category, status))";
+			String query  = "insert into tickets (0,name, amount, category, status) values (?,?,?,CAST(? as category, status))";
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, newTicket.getName());
 			pstmt.setDouble(2, newTicket.getAmount());
